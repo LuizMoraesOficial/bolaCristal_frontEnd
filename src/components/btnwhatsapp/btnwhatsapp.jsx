@@ -1,13 +1,20 @@
-import React from "react";
-import "./btnwhatsapp.css";
+import React from 'react';
+import './btnwhatsapp.css';
 
 export default function BtnWhatsapp() {
-  // Atualize o telefone abaixo
-  const phone = "5511999999999";
-  const text = encodeURIComponent("Olá! Vim pelo site e quero saber mais...");
+  const whatsappNumber = '5511999999999'; // Altere para o número real
+  const whatsappMessage = 'Olá! Gostaria de agendar uma consulta.';
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
-    <a className="btn-whatsapp" href={`https://wa.me/${phone}?text=${text}`} target="_blank" rel="noreferrer">
-      💬
+    <a 
+      href={whatsappUrl} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="btn-whatsapp"
+      aria-label="Contato via WhatsApp"
+    >
+      <span className="whatsapp-icon">💬</span>
     </a>
   );
 }

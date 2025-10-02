@@ -1,0 +1,231 @@
+/* Shop Section */
+.shop-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #0A0B2E 0%, #0D0E35 100%);
+  position: relative;
+}
+
+.shop-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.shop-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.shop-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.shop-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(90, 46, 152, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
+
+.product-card:hover {
+  border-color: #FFD700;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3);
+}
+
+/* Image */
+.product-image {
+  background: linear-gradient(135deg, rgba(90, 46, 152, 0.3) 0%, rgba(255, 215, 0, 0.2) 100%);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+/* Content */
+.product-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Name */
+.product-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.3rem;
+  color: #FFD700;
+  margin: 0;
+}
+
+/* Description */
+.product-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Footer */
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* Price */
+.product-price {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: #FFD700;
+  font-weight: 700;
+}
+
+/* Button */
+.product-btn {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, #5A2E98 0%, #FFD700 100%);
+  border: none;
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+}
+
+/* CTA */
+.shop-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.shop-view-all {
+  padding: 1rem 3rem;
+  background: transparent;
+  border: 2px solid #FFD700;
+  border-radius: 50px;
+  color: #FFD700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.shop-view-all:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .shop-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .shop-title {
+    font-size: 2.5rem;
+  }
+
+  .shop-subtitle {
+    font-size: 1rem;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-image {
+    height: 180px;
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-title {
+    font-size: 2rem;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+  }
+
+  .product-image {
+    height: 160px;
+    font-size: 3.5rem;
+  }
+
+  .shop-view-all {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}

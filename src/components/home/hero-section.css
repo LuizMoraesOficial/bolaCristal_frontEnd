@@ -1,9 +1,266 @@
-.hero{ min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 20px 60px; position:relative; }
-.hero-inner{ max-width:900px; color:#fff; animation: fadeInUp 0.9s ease both; }
-.hero-title{ font-family:'Cinzel Decorative',serif; font-size:44px; margin:0 0 18px; line-height:1.02; }
-.hero-title span{ display:block; }
-.hero-title .gold{ color:#FFD700; }
-.hero-subtitle{ font-family:'Poppins',sans-serif; opacity:0.9; margin-bottom:26px; }
-.btn{ font-family:'Poppins',sans-serif; padding:12px 22px; border-radius:28px; border:none; cursor:pointer; margin:0 8px; }
-.btn.primary{ background: linear-gradient(135deg,#6c37d6,#8b5cf6); color:#fff; box-shadow:0 8px 30px rgba(90,46,152,0.25);}
-.btn.outline{ background:transparent; border:2px solid #FFD700; color:#FFD700; }
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0A0B2E;
+}
+
+/* Background com partículas */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(90, 46, 152, 0.3) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 15% 90%, white, transparent);
+  background-size: 200% 200%;
+  animation: moveStars 100s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 10000px 5000px, -5000px 10000px, 10000px 10000px, 
+                         -10000px -5000px, 5000px -10000px, -10000px 10000px, 10000px -5000px;
+  }
+}
+
+/* Conteúdo */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Ícone místico */
+.hero-icon {
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.mystical-symbol {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Título */
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.hero-title-highlight {
+  color: #FFFFFF;
+  display: inline-block;
+}
+
+.hero-title-gold {
+  color: #FFD700;
+  display: inline-block;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 215, 0, 1);
+  }
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botões */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, #5A2E98 0%, #FFD700 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+  animation: glow-btn 1.5s ease-in-out infinite;
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+@keyframes glow-btn {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* Scroll Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  font-size: 2rem;
+  color: #FFD700;
+  opacity: 0.7;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .mystical-symbol {
+    font-size: 3.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .mystical-symbol {
+    font-size: 3rem;
+  }
+}

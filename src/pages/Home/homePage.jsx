@@ -1,23 +1,37 @@
-import React from "react";
-import Header from "../../components/header/header.jsx";
-import Footer from "../../components/footer/footer.jsx";
-import BtnWhatsapp from "../../components/btnwhatsapp/btnwhatsapp.jsx";
-import HeroSection from "../../components/home/hero-section.jsx";
-import FeaturesSection from "../../components/home/features-section.jsx";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import BtnWhatsapp from "../../components/btnwhatsapp/btnwhatsapp";
+import HeroSection from "../../components/home/hero-section";
+import FeaturesSection from "../../components/home/features-section";
+import ServicesSection from "../../components/home/services-section";
+import CoursesSection from "../../components/home/courses-section";
+import TestimonialsSection from "../../components/home/testimonials-section";
+import ShopSection from "../../components/home/shop-section";
+import BlogSection from "../../components/home/blog-section";
+import ClubSection from "../../components/home/club-section";
+import NewsletterSection from "../../components/home/newsletter-section";
+import ContactSection from "../../components/home/contact-section";
 import "./home.css";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ paddingTop: "100px" }}>
         <HeroSection />
         <FeaturesSection />
-        {/* quando o manus gerar, substitua/adicione as outras seções aqui */}
+        <ServicesSection />
+        <CoursesSection />
+        <TestimonialsSection />
+        <ShopSection />
+        <BlogSection />
+        <ClubSection />
+        <NewsletterSection />
+        <ContactSection />
       </main>
-
       <Footer />
       <BtnWhatsapp />
     </>
   );
 }
+
