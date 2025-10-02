@@ -1,0 +1,9 @@
+.site-footer{
+  background:#071033;
+  color:#d5cba6;
+  padding:24px 20px;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  margin-top:40px;
+}
+.footer-inner{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:8px; }

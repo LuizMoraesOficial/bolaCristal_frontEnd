@@ -1,0 +1,9 @@
+.hero{ min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 20px 60px; position:relative; }
+.hero-inner{ max-width:900px; color:#fff; animation: fadeInUp 0.9s ease both; }
+.hero-title{ font-family:'Cinzel Decorative',serif; font-size:44px; margin:0 0 18px; line-height:1.02; }
+.hero-title span{ display:block; }
+.hero-title .gold{ color:#FFD700; }
+.hero-subtitle{ font-family:'Poppins',sans-serif; opacity:0.9; margin-bottom:26px; }
+.btn{ font-family:'Poppins',sans-serif; padding:12px 22px; border-radius:28px; border:none; cursor:pointer; margin:0 8px; }
+.btn.primary{ background: linear-gradient(135deg,#6c37d6,#8b5cf6); color:#fff; box-shadow:0 8px 30px rgba(90,46,152,0.25);}
+.btn.outline{ background:transparent; border:2px solid #FFD700; color:#FFD700; }

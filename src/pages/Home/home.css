@@ -1,0 +1,22 @@
+/* global da home - partículas e animações básicas */
+@keyframes moveStars {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 10000px 5000px, -5000px 10000px, 10000px 10000px; }
+}
+
+body, html, #root {
+  height: 100%;
+}
+
+main {
+  background-color: #0A0B2E;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 50px 80px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 100px 150px, rgba(255,255,255,0.6), transparent);
+  animation: moveStars 120s linear infinite;
+  min-height: 100vh;
+}
+
+/* animações reutilizáveis (usar nas sections) */
+@keyframes fadeInUp { from{ opacity:0; transform:translateY(30px); } to{ opacity:1; transform:none; } }

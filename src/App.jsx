@@ -1,12 +1,8 @@
 import React from "react";
+import HomePage from "./pages/Home/homePage.jsx";
 
-function App() {
-  return (
-    <div>
-      <h1>🚀 Plataforma React + Node</h1>
-      <p>FrontEnd conectado ao BackEnd</p>
-    </div>
-  );
+function App(){
+  return <HomePage />;
 }
 
 export default App;
