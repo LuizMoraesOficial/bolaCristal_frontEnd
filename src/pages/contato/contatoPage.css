@@ -1,0 +1,55 @@
+.contato-page {
+  background: linear-gradient(180deg, #0a0220, #1a003d);
+  color: #fff;
+  padding: 6rem 2rem;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.contato-title {
+  font-size: 2.5rem;
+  color: #00bfff;
+  margin-bottom: 1rem;
+}
+
+.contato-subtitle {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contato-form input,
+.contato-form textarea {
+  width: 320px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.contato-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contato-btn {
+  background: #00bfff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contato-btn:hover {
+  background: #0099cc;
+}

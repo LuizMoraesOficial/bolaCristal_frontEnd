@@ -16,8 +16,7 @@ import "./home.css";
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main style={{ paddingTop: "100px" }}>
+      <main>
         <HeroSection />
         <FeaturesSection />
         <ServicesSection />
@@ -29,8 +28,6 @@ export default function HomePage() {
         <NewsletterSection />
         <ContactSection />
       </main>
-      <Footer />
-      <BtnWhatsapp />
     </>
   );
 }

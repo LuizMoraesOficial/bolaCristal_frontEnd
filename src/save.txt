@@ -1,0 +1,51 @@
+import { useEffect } from "react";
+import Header from "./components/header/header.jsx"; // ✅ Import obrigatório
+import Footer from "./components/footer/footer.jsx";
+import BtnWhatsapp from "./components/btnwhatsapp/btnwhatsapp.jsx";
+import { Outlet } from "react-router-dom"; // caso use rotas
+import "./App.css";
+
+function App() {
+  useEffect(() => {
+    const header = document.querySelector(".header");
+    if (header) {
+      const updatePadding = () => {
+        const headerHeight = header.offsetHeight;
+        document.body.style.paddingTop = `${headerHeight}px`;
+      };
+      updatePadding();
+      window.addEventListener("resize", updatePadding);
+      return () => window.removeEventListener("resize", updatePadding);
+    }
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <main>
+        <Outlet /> {/* ou suas páginas diretas */}
+      </main>
+      <Footer />
+      <BtnWhatsapp />
+    </>
+  );
+}
+
+export default App;
+
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Home/homePage.jsx";
+import BlogPage from "./pages/Blog/blogPage.jsx";
+
+export default function App() {
+  return (
+    <Router basename="/bolaCristal_frontEnd">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+      </Routes>
+    </Router>
+  );
+}

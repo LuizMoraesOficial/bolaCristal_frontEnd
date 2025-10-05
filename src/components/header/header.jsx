@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,13 +34,13 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className={`header-nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-          <a href="#inicio" className="nav-link">Início</a>
-          <a href="#servicos" className="nav-link">Serviços</a>
-          <a href="#cursos" className="nav-link">Cursos</a>
-          <a href="#loja" className="nav-link">Loja</a>
-          <a href="#blog" className="nav-link">Blog</a>
-          <a href="#clube" className="nav-link">Clube</a>
-          <a href="#contato" className="nav-link">Contato</a>
+          <Link href="#inicio" className="nav-link" to="/">Início</Link>
+          <Link href="#servicos" className="nav-link" to="/servicos">Serviços</Link>
+          <Link href="#cursos" className="nav-link" to="cursos">Cursos</Link>
+          <Link href="#loja" className="nav-link" to="loja">Loja</Link>
+          <Link href="#blog" className="nav-link" to="/blog">Blog</Link>
+          <Link href="#clube" className="nav-link" to="clube">Clube</Link>
+          <Link href="#contato" className="nav-link" to="contato">Contato</Link>
         </nav>
 
         {/* Action Buttons */}
