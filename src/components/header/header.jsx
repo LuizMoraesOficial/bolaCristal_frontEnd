@@ -48,9 +48,9 @@ export default function Header() {
           <button className="header-btn-theme" aria-label="Alternar tema">
             🌙
           </button>
-          <button className="header-btn-user" aria-label="Perfil do usuário">
+          <Link className="header-btn-user" aria-label="Perfil do usuário" to="/admin/login">
             👤
-          </button>
+          </Link>
           <button className="header-btn-cart" aria-label="Carrinho de compras">
             🛒
           </button>

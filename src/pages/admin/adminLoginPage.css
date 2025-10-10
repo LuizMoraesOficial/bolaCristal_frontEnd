@@ -1,0 +1,154 @@
+/* src/pages/admin/adminLoginPage.css */
+
+/* Importa a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap' );
+
+/* --- Estilos Globais e Fundo Animado --- */
+.admin-login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
+  background-size: 400% 400%;
+  animation: gradient-bg 20s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Container com Efeito Glassmorphism --- */
+.glass-container {
+  position: relative;
+  padding: 50px;
+  width: 90%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Animações de Partículas (para o Logo) --- */
+@keyframes particle-anim {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(calc(var(--x, 0) * 30px), calc(var(--y, 0) * 30px)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #00aeff, 0 0 30px #00aeff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 35px #ffd700, 0 0 45px #ffd700;
+  }
+}
+
+/* --- Estilos do Formulário e Inputs --- */
+.admin-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 15px 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.admin-input:focus {
+  border-color: #00aeff;
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.5), 0 0 5px rgba(255, 215, 0, 0.3) inset;
+}
+
+.admin-input:focus::placeholder {
+  opacity: 0;
+}
+
+/* --- Estilos do Botão e Efeito Sabre de Luz --- */
+.admin-button {
+  position: relative;
+  padding: 15px 20px;
+  background: linear-gradient(45deg, #00aeff, #ffd700);
+  border: none;
+  border-radius: 10px;
+  color: #0c0c1e;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 174, 255, 0.4), 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.admin-button .shine-effect {
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 50px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: rotate(35deg);
+  transition: left 0.6s ease-in-out;
+}
+
+.admin-button:hover .shine-effect {
+  left: 150%;
+}
+
+/* --- Mensagem de Erro --- */
+.error-message {
+  color: #ff4d4d;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(255, 77, 77, 0.7);
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsividade --- */
+@media (max-width: 480px) {
+  .glass-container {
+    padding: 30px;
+  }
+}
