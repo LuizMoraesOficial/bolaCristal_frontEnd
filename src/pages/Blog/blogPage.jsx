@@ -1,36 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header.jsx";
 import Footer from "../../components/footer/footer.jsx";
 import BtnWhatsapp from "../../components/btnwhatsapp/btnwhatsapp.jsx";
 import "./blog.css";
 
 export default function BlogPage() {
+  const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  const posts = [
-    {
-      id: 1,
-      title: "Título do Artigo 1",
-      summary: "Um breve resumo do conteúdo do artigo 1 — logo mais virá do banco MariaDB.",
-      content: "Aqui estaria o conteúdo completo do artigo 1, com detalhes, imagens e muito mais...",
-    },
-    {
-      id: 2,
-      title: "Título do Artigo 2",
-      summary: "Um breve resumo do conteúdo do artigo 2 — logo mais virá do banco MariaDB.",
-      content: "Aqui estaria o conteúdo completo do artigo 2. Você pode expandir para ler tudo.",
-    },
-    {
-      id: 3,
-      title: "Título do Artigo 3",
-      summary: "Um breve resumo do conteúdo do artigo 3 — logo mais virá do banco MariaDB.",
-      content: "Aqui estaria o conteúdo completo do artigo 3. Logo virá direto do banco de dados.",
-    },
-  ];
+  // 👉 Busca os posts via PHP
+  useEffect(() => {
+    fetch("https://bolacristalbackend-1.onrender.com/getPosts.php")
+      .then((res) => res.json())
+      .then((data) => setPosts(data.reverse())) // posts mais recentes primeiro
+      .catch((err) => console.error("Erro ao carregar posts:", err));
+  }, []);
 
   return (
     <>
-      
+      <Header />
       <main className="blog-container">
         {!selectedPost ? (
           <>
@@ -38,34 +26,74 @@ export default function BlogPage() {
             <p className="blog-subtitle">
               Explore artigos sobre tarot, astrologia e espiritualidade.
             </p>
-            <div className="blog-grid">
-              {posts.map((post) => (
-                <div
-                  key={post.id}
-                  className="blog-card"
-                >
-                  <h2>{post.title}</h2>
-                  <p>{post.summary}</p>
-                  <button
-                    className="read-more-btn"
-                    onClick={() => setSelectedPost(post)}
-                  >
-                    Ler mais
-                  </button>
-                </div>
-              ))}
-            </div>
+
+            {posts.length > 0 ? (
+              <div className="blog-grid">
+                {posts.map((post) => {
+                  const imageSrc = post.imagem || post.image || post.image_url;
+
+                  return (
+                    <div key={post.id} className="blog-card">
+                      {imageSrc && (
+                        <div className="blog-image">
+                          <img
+                            src={imageSrc}
+                            alt={post.titulo}
+                            style={{ width: "100%", borderRadius: "8px" }}
+                          />
+                        </div>
+                      )}
+                      <h2>{post.titulo}</h2>
+                      <p>
+                        {(post.conteudo || post.texto)?.substring(0, 120) + "..."}
+                      </p>
+                      <button
+                        className="read-more-btn"
+                        onClick={() => setSelectedPost(post)}
+                      >
+                        Ler mais
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="no-posts">Nenhum post publicado ainda 🔮</p>
+            )}
           </>
         ) : (
           <div className="expanded-post">
             <button className="back-btn" onClick={() => setSelectedPost(null)}>
               ⬅ Voltar
             </button>
-            <h2>{selectedPost.title}</h2>
-            <p>{selectedPost.content}</p>
+
+            {/* 🖼️ Exibe imagem (qualquer nome de campo) */}
+            {(selectedPost.imagem ||
+              selectedPost.image ||
+              selectedPost.image_url) && (
+              <div className="expanded-image">
+                <img
+                  src={
+                    selectedPost.imagem ||
+                    selectedPost.image ||
+                    selectedPost.image_url
+                  }
+                  alt={selectedPost.titulo}
+                  className="expanded-post-img"
+                />
+              </div>
+            )}
+
+            {/* 🧙‍♀️ Conteúdo do post */}
+            <h2 className="expanded-title">{selectedPost.titulo}</h2>
+            <p className="expanded-text">
+              {selectedPost.conteudo || selectedPost.texto}
+            </p>
           </div>
         )}
-        </main>
+      </main>
+      <Footer />
+      <BtnWhatsapp />
     </>
   );
 }

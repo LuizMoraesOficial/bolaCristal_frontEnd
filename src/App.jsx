@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
+//Abaixo sao as rotas de arquivos adicionados.
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
 import BtnWhatsapp from "./components/btnwhatsapp/btnwhatsapp.jsx";
@@ -12,6 +14,9 @@ import ClubePage from "./pages/clube/clubePage.jsx";
 import ContatoPage from "./pages/contato/contatoPage.jsx";
 import AdminLoginPage from "./pages/admin/adminLoginPage.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import BlogPostAdmin from "./pages/admin/blogPostAdmin/BlogPostAdmin.jsx";
+import BlogPostPage from "./pages/Blog/blogPostPage.jsx"; // nova página para exibir post individual
+// coloque as rotas sempre aqui para organizar o projeto
 
 import "./App.css";
 
@@ -55,6 +60,7 @@ export default function App() {
         {/* Páginas públicas */}
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogPostPage />} /> {/* <-- essa é a rota que faltava */}
         <Route path="/servicos" element={<ServicesPage />} />
         <Route path="/cursos" element={<CursosPage />} />
         <Route path="/loja" element={<LojaPage />} />
@@ -64,6 +70,7 @@ export default function App() {
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/blog" element={<BlogPostAdmin />} />
       </Routes>
     </LayoutWrapper>
   );

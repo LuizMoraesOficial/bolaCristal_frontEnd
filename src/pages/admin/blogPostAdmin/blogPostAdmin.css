@@ -1,0 +1,449 @@
+/* src/pages/admin/blogPostAdmin/blogPostAdmin.css */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap");
+
+/* ========== Fontes ========== */
+.font-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ========== Fundo principal com gradiente escuro ========== */
+.bg-gradient-dark {
+  background: linear-gradient(180deg, #020617 0%, #0a0a2a 100%);
+  min-height: 100vh;
+}
+
+/* ========== Tipografia ========== */
+.text-neon-blue {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
+    0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+}
+.text-subtitle {
+  color: rgba(150, 220, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* ========== Cards com glassmorphism ========== */
+.card-glassmorphism {
+  background: rgba(15, 20, 45, 0.6);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(0, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  position: relative;
+}
+.card-glassmorphism::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card-glassmorphism:hover::before {
+  opacity: 1;
+}
+.card-glassmorphism:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(0, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ========== Imagens dos cards ========== */
+.card-image {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.card-image img {
+  transition: transform 0.4s ease;
+}
+.card-glassmorphism:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* ========== Modal fullscreen ========== */
+.modal-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 20, 0.92);
+  backdrop-filter: blur(25px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 2rem;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+/* ========== Formulário interno do modal ========== */
+.modal-form {
+  background: rgba(10, 15, 40, 0.85);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(0, 255, 255, 0.35);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.6);
+  border-radius: 24px;
+  width: 95%;
+  max-width: 950px;
+  padding: 3rem;
+  color: #fff;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ========== Animações ========== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(255, 68, 68, 0.8),
+        0 0 50px rgba(255, 68, 68, 0.4); }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 35px rgba(0, 255, 255, 0.8),
+        0 0 60px rgba(0, 255, 255, 0.4); }
+}
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Botão Novo Post ========== */
+.btn-novo-post {
+  background: linear-gradient(135deg, #00ffff 0%, #0099ff 50%, #00ffff 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  color: #000;
+  font-weight: 800;
+  padding: 1rem 2.5rem;
+  border-radius: 14px;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+.btn-novo-post::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+.btn-novo-post:hover::before {
+  width: 300px;
+  height: 300px;
+}
+.btn-novo-post:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.8),
+    0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px) scale(1.05);
+  border-color: rgba(0, 255, 255, 0.7);
+}
+.btn-novo-post:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ========== Botão Editar ========== */
+.btn-editar {
+  background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+}
+.btn-editar:hover {
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.7),
+    0 6px 18px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  border-color: rgba(0, 212, 255, 0.6);
+}
+
+/* ========== Botão Excluir ========== */
+.btn-excluir {
+  background: linear-gradient(135deg, #ff4466 0%, #ff0044 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 68, 102, 0.3);
+  box-shadow: 0 0 15px rgba(255, 68, 102, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+}
+.btn-excluir:hover {
+  animation: pulse 1.5s ease-in-out infinite;
+  transform: translateY(-3px) scale(1.05);
+  border-color: rgba(255, 68, 102, 0.6);
+}
+
+/* ========== Botão Cancelar (modal) ========== */
+.btn-cancel {
+  background: linear-gradient(135deg, #ff5544 0%, #ff8800 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 85, 68, 0.4);
+  box-shadow: 0 0 20px rgba(255, 85, 68, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-cancel:hover {
+  box-shadow: 0 0 30px rgba(255, 85, 68, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  border-color: rgba(255, 85, 68, 0.7);
+}
+
+/* ========== Botão Salvar (modal) ========== */
+.btn-save {
+  background: linear-gradient(135deg, #00ff88 0%, #00aaff 100%);
+  color: #000;
+  font-weight: 800;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-save:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 136, 0.8),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  border-color: rgba(0, 255, 136, 0.7);
+}
+
+/* ========== Inputs e textareas ========== */
+.input-neon {
+  background: rgba(5, 10, 35, 0.8);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  color: #fff;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.input-neon:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3),
+    0 0 30px rgba(0, 255, 255, 0.1);
+  background: rgba(5, 10, 35, 0.95);
+}
+.input-neon::placeholder {
+  color: rgba(200, 220, 255, 0.4);
+}
+
+/* ========== Animação de entrada para os cards ========== */
+.card-enter {
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+/* ========== Espaçamentos e margens ========== */
+.section-spacing {
+  margin-bottom: 3rem;
+}
+.card-spacing {
+  margin-bottom: 2rem;
+}
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.modal-button-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+/* ========== Scrollbar personalizada para o modal ========== */
+.modal-form::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-form::-webkit-scrollbar-track {
+  background: rgba(5, 10, 30, 0.6);
+  border-radius: 10px;
+}
+.modal-form::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0.6),
+    rgba(0, 150, 255, 0.6)
+  );
+  border-radius: 10px;
+}
+.modal-form::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0.8),
+    rgba(0, 150, 255, 0.8)
+  );
+}
+
+/* ========== Responsividade ========== */
+@media (max-width: 768px) {
+  .modal-fullscreen {
+    padding: 1rem;
+  }
+  .modal-form {
+    width: 98%;
+    padding: 2rem 1.5rem;
+  }
+  .text-5xl {
+    font-size: 2.2rem;
+  }
+  .text-3xl {
+    font-size: 1.8rem;
+  }
+  .btn-novo-post {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
+  .btn-editar,
+  .btn-excluir {
+    font-size: 0.85rem;
+    padding: 0.55rem 1.1rem;
+  }
+  .modal-button-group {
+    gap: 1rem;
+  }
+}
+
+/* ======== Ajuste para manter o tamanho fixo do modal de edição ======== */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Container da imagem no modal */
+.modal-form .image-preview {
+  width: 100%;
+  max-width: 700px;
+  height: 350px; /* altura fixa para manter o layout consistente */
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* A imagem dentro do preview se adapta sem alterar o tamanho do container */
+.modal-form .image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+/* Pequeno efeito ao passar o mouse na imagem */
+.modal-form .image-preview:hover img {
+  transform: scale(1.05);
+}
+
+/* Mantém o modal estável mesmo com imagens grandes */
+.modal-form img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-form .image-preview {
+    height: 250px;
+  }
+}
+

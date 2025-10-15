@@ -1,80 +1,158 @@
+/* 🌌 Container principal */
 .blog-container {
-  background: #0a0220;
+  background: radial-gradient(circle at top, #0a0220, #060014);
   color: #fff;
   text-align: center;
   padding: 6rem 2rem;
   min-height: 100vh;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
+/* 🔮 Títulos */
 .blog-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: #ffeb3b;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
 }
 
 .blog-subtitle {
   color: #ccc;
+  font-size: 1.1rem;
   margin-bottom: 3rem;
 }
 
+/* 🧱 Grid de posts */
 .blog-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
+/* 📜 Card individual */
 .blog-card {
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 2rem;
-  width: 280px;
+  width: 300px;
   transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 235, 59, 0.05);
 }
 
 .blog-card:hover {
   border-color: #ffeb3b;
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 235, 59, 0.25);
 }
 
+/* 🖼️ Imagem do post */
+.blog-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(255, 235, 59, 0.2);
+}
+
+/* ✍️ Título e texto */
+.blog-card h2 {
+  font-size: 1.3rem;
+  color: #ffeb3b;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 🔮 Botão Ler Mais */
 .read-more-btn {
-  background: #ffeb3b;
+  background: linear-gradient(90deg, #ffeb3b, #fff176);
   color: #000;
   border: none;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1.8rem;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 1rem;
-  transition: 0.2s;
+  margin-top: 1.2rem;
+  transition: 0.25s ease-in-out;
 }
 
 .read-more-btn:hover {
-  background: #ffe600;
+  background: linear-gradient(90deg, #fff176, #ffeb3b);
+  transform: scale(1.05);
 }
 
-/* Post expandido */
+/* 📖 Post expandido */
 .expanded-post {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   text-align: left;
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 12px;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 235, 59, 0.15);
+  animation: fadeIn 0.5s ease forwards;
 }
 
-.back-btn {
-  background: none;
-  border: none;
+/* 🖼️ Imagem expandida */
+.expanded-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 25px rgba(255, 235, 59, 0.25);
+}
+
+/* 🧙‍♀️ Texto expandido */
+.expanded-post h2 {
+  font-size: 2rem;
   color: #ffeb3b;
-  font-size: 1.2rem;
-  cursor: pointer;
   margin-bottom: 1rem;
-  transition: 0.2s;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.4);
+}
+
+.expanded-post p {
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* 🔙 Botão voltar */
+.back-btn {
+  background: linear-gradient(90deg, #ffeb3b, #fff176);
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1.6rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .back-btn:hover {
-  color: #fff;
+  background: linear-gradient(90deg, #fff176, #ffeb3b);
+  transform: translateY(-3px);
+}
+
+/* ✨ Animação suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

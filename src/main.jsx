@@ -4,8 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 
+// Detecta automaticamente o caminho base
+const base =
+  window.location.hostname.includes("github.io")
+    ? "/bolaCristal_frontEnd"
+    : "/";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/bolaCristal_frontEnd">
-    <App />
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename={base}>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );

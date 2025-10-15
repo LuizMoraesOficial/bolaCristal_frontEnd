@@ -5,6 +5,7 @@
   z-index: 100;
   width: 100%;
   height: 70px;
+  border-radius: 20px;
   background: rgba(10, 10, 25, 0.8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 215, 0, 0.15);
@@ -39,19 +40,26 @@
 }
 
 .admin-nav a span {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(0, 0, 0, 1);
+  background: linear-gradient(45deg, #00aeff, #ffd700);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease, text-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 12px;
 }
 
 .admin-nav a span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
   color: #00aeff;
-  text-shadow: 0 0 10px rgba(0, 174, 255, 0.8);
+  
 }
 
 .admin-nav a span.active {
-  color: #ffd700;
+  color: #26dce9ee;
+  background: linear-gradient(45deg, #93ac23ff, #5d00f1ff);
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
 }
 
